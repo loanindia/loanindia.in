@@ -181,6 +181,17 @@ body {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
+.carousel-item img {
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+@media (max-width: 576px) {
+  .carousel-item img {
+    height: 200px;
+  }
+}
 
 /* Carousel Image Effects */
 #loanCarousel img {
