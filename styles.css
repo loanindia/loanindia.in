@@ -1,4 +1,3 @@
-
 /* Apply Poppins as default site-wide font */
 body, h1, h2, h3, h4, h5, h6, p, a, button, input, select, textarea, label {
     font-family: 'Poppins', 'Segoe UI', 'Helvetica Neue', sans-serif;
@@ -6,7 +5,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, select, textarea, label {
 
 /* General Body Styling */
 body {
-    font-family: 'Poppins', sans-serif;  /* Set Poppins as the default font */
+    font-family: 'Poppins', sans-serif;
     background-color: #f8f9fa;
     margin: 0;
     padding: 0;
@@ -15,63 +14,41 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Hero Section Styling */
-#home {
-    background: linear-gradient(90deg, #2c3e50 0%, #3498db 100%);
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-    padding: 120px 0;
-    color: #fff;
+/* Features Section */
+.features-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+    background: #f8f9ff;
+}
+
+.feature-tile {
+    background: #fff;
+    padding: 25px 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    border-left: 5px solid #302b63;
+    transition: all 0.3s ease-in-out;
 }
 
-#home::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
+.feature-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
-#home h2 {
-    font-size: 3.5rem;
+.feature-tile h3 {
+    color: #302b63;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #fff;
-    position: relative;
-    z-index: 2;
-    animation: fadeInSlide 2s ease-out forwards;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
-/* Professional Animation: Fade in and slide up effect */
-@keyframes fadeInSlide {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.feature-tile p {
+    color: #555;
+    font-size: 0.95rem;
 }
-
-#home p {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    margin-top: 20px;
-    color: #f5f5f5;
-    position: relative;
-    z-index: 2;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-    animation: fadeInSlide 2s ease-out 0.5s forwards;
-}
-
 /* Buttons with Linear Gradient */
 .btn, .btn-gradient {
     position: relative;
@@ -81,7 +58,7 @@ body {
     font-weight: 600;
     border: 2px solid transparent;
     border-radius: 30px;
-    background: linear-gradient(90deg, #005c97 0%, #363795 100%);
+    background: linear-gradient(90deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
     color: #fff;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -97,46 +74,195 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Gradient Navbar Links - Similar to .btn-gradient */
-.navbar .nav-link {
-    display: inline-block;
-    padding: 10px 22px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #fff;
-    border: 2px solid transparent;
-    border-radius: 30px;
-    background: linear-gradient(90deg, #005c97 0%, #363795 100%);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    margin: 0 8px;
-    transition: all 0.3s ease;
-    text-decoration: none;
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Horizontal padding */
+    height: 80px; /* Navbar height */
+    background-color: #fff; /* White background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Keep navbar above other content */
+    transition: background-color 0.3s ease;
 }
 
-/* Hover & Focus States */
-.navbar .nav-link:hover,
-.navbar .nav-link:focus {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-    color: #fff;
-    text-decoration: none;
+/* Logo Styling */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
-/* Active / Clicked State */
-.navbar .nav-link:active {
-    transform: translateY(2px) scale(1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(90deg, #005c97 0%, #363795 100%);
+/* Image within the navbar */
+.navbar-brand img {
+    height: auto;
+    max-height: 60px; /* Adjust the max height for logo */
+    width: auto;
+    object-fit: contain;
+    background-color: transparent; /* Ensure transparent background for logo */
 }
 
-/* Modal Backdrop */
+/* Navbar links (menu items) */
+.navbar-nav {
+    display: flex;
+    list-style: none; /* Remove default list style */
+    margin: 0;
+}
+
+.navbar-nav .nav-item {
+    margin-left: 20px; /* Space between nav items */
+}
+
+.navbar-nav .nav-link {
+    font-weight: 600; /* Make the text a little bolder */
+    color: #0f0c29; /* Change text color to #0f0c29 */
+    text-transform: uppercase; /* Uppercase text */
+    padding: 10px 15px; /* Vertical and horizontal padding */
+    font-size: 16px; /* Font size */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth color transition and transform effect */
+}
+
+/* Hover effect on nav links */
+.navbar-nav .nav-link:hover {
+    color: #4e45a0; /* Color change on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Hamburger Menu */
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+}
+
+.navbar-toggler-icon {
+    background-color: #0f0c29; /* Change hamburger icon color */
+    height: 4px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    /* Navbar links hidden initially on small screens */
+    .navbar-nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        top: 80px; /* Position below the navbar */
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        z-index: 999;
+    }
+
+    /* Show navbar links when menu is active */
+    .navbar-nav.active {
+        display: flex;
+    }
+
+    /* Navbar items (links) styling for smaller screens */
+    .navbar-nav .nav-item {
+        margin: 10px 0; /* Add spacing between items */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 18px; /* Slightly larger font size for mobile */
+        padding: 12px 15px;
+    }
+
+    /* Toggle the navbar visibility when hamburger is clicked */
+    .navbar-toggler.active + .navbar-collapse .navbar-nav {
+        display: flex;
+    }
+
+    /* Adjust logo size for mobile */
+    .navbar-brand img {
+        max-height: 50px; /* Reduce logo size on mobile */
+    }
+}
+
+/* Tablet responsiveness (for screens between 768px and 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    /* Adjust navbar items for tablet view */
+    .navbar-nav {
+        flex-direction: row; /* Keep items in a row */
+    }
+
+    .navbar-nav .nav-item {
+        margin-left: 15px; /* Adjust spacing between items */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 15px; /* Slightly smaller font size */
+        padding: 8px 12px; /* Smaller padding for tablets */
+    }
+
+    .navbar-brand img {
+        max-height: 55px; /* Adjust logo size for tablet */
+    }
+}
+
+/* Smooth transition for sticky navbar */
+.navbar.sticky {
+    background-color: #f8f9fa; /* Slightly change background when sticky */
+}
+
+/* Active navbar toggle */
+.navbar-toggler.active .navbar-toggler-icon {
+    background-color: #fff;
+}
+
+/* Smooth scrolling effect for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Image within the navbar */
+.navbar-brand img {
+    height: auto;
+    max-height: 300px; /* Increased the max height for logo */
+    width: auto;
+    object-fit: contain;
+    background-color: transparent; /* Ensure transparent background for logo */
+}
+
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Horizontal padding */
+    height: 80px; /* Navbar height */
+    background-color: #fff; /* White background */
+    box-shadow: none; /* Removed shadow behind navbar */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Keep navbar above other content */
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+/* Modal & EMI Styling */
 .modal-backdrop {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Custom EMI Modal Styling */
 #emi-modal .modal-content {
     border-radius: 12px;
     padding: 30px;
@@ -158,7 +284,7 @@ body {
 }
 
 #emi-modal .form-range {
-    accent-color: #005c97;
+    accent-color: #0f0c29;
 }
 
 #emi-result {
@@ -199,17 +325,15 @@ body {
     color: #fff;
 }
 
-/* Footer logo styling */
 .footer-logo {
-    height: auto;                /* Maintain proportional height */
-    max-height: 200px;            /* Suitable max height for footer */
-    width: auto;                 /* Maintain aspect ratio */
-    max-width: 220%;             /* Prevent it from stretching too wide */
-    object-fit: contain;         /* Keep logo from getting distorted */
-    background-color: transparent; /* Ensure transparency if PNG */
+    height: auto;
+    max-height: 200px;
+    width: auto;
+    max-width: 220%;
+    object-fit: contain;
+    background-color: transparent;
 }
 
-/* Footer links styling */
 .footer-link {
     color: #bbb;
     text-decoration: none;
@@ -261,32 +385,3 @@ body {
         padding: 20px;
     }
 }
-
-/* Navbar container */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
-    height: 80px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* Logo Styling */
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-/* Image within the navbar */
-.navbar-brand img {
-    height: auto;              /* Let the image scale proportionally */
-    max-height: 280px;          /* Set the maximum height of the logo */
-    width: auto;               /* Keep the aspect ratio intact */
-    max-width: 300%;           /* Allow the image to take full width of its container */
-    object-fit: contain;       /* Prevent distortion and maintain aspect ratio */
-    background-color: transparent; /* Keeps transparent background */
-  } 
-
