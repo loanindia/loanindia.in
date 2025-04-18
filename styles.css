@@ -224,65 +224,25 @@ body {
     color: #f8f9fa;
 }
 
+/* Carousel Image Styling */
 .carousel-item img {
     width: 100%;
     height: auto;
     max-height: 300px;
     object-fit: cover;
+    display: block;
 }
 
+/* Mobile carousel image adjustment */
 @media (max-width: 576px) {
     .carousel-item img {
         width: 100%;
-        height: 180px; /* Adjust as needed */
+        height: 200px;
         object-fit: cover;
     }
 }
 
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .carousel-inner img {
-        height: 250px;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-    }
-
-    .btn, .btn-gradient {
-        font-size: 1rem;
-        padding: 12px 25px;
-    }
-
-    .card {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar {
-        padding: 10px 15px;
-    }
-
-    .nav-link {
-        font-size: 0.9rem;
-        padding: 8px 18px;
-    }
-
-    #home h2 {
-        font-size: 2.5rem;
-    }
-
-    #emi-modal .modal-content {
-        padding: 20px;
-    }
-    .navbar-collapse {
-        background-color: #fff; /* Optional: makes menu visible if overlaying */
-        z-index: 999;
-    }
-    
-}
-
-/* Navbar container */
+/* Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -293,20 +253,54 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Logo Styling */
+/* Navbar brand/logo */
 .navbar-brand {
     display: flex;
     align-items: center;
     height: 100%;
 }
 
-/* Image within the navbar */
 .navbar-brand img {
-    height: auto;              /* Let the image scale proportionally */
-    max-height: 280px;          /* Set the maximum height of the logo */
-    width: auto;               /* Keep the aspect ratio intact */
-    max-width: 300%;           /* Allow the image to take full width of its container */
-    object-fit: contain;       /* Prevent distortion and maintain aspect ratio */
-    background-color: transparent; /* Keeps transparent background */
-  } 
+    height: auto;
+    max-height: 80px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    background-color: transparent;
+}
 
+/* Navbar toggler and collapse menu */
+.navbar-collapse {
+    background-color: #fff;
+    padding: 10px;
+    z-index: 999;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.navbar .nav-link {
+    color: #000;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    text-align: left;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Navbar toggle button */
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+/* Ensure nav links look good on hover */
+.navbar .nav-link:hover {
+    color: #005c97;
+}
