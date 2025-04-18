@@ -13,10 +13,7 @@ body {
     box-sizing: border-box;
     transition: all 0.3s ease;
 }
-.section-after-header {
-    margin-bottom: 60px;
-  }
-  
+
 /* Hero Section Styling */
 #home {
     background: linear-gradient(90deg, #2c3e50 0%, #3498db 100%);
