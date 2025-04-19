@@ -82,13 +82,12 @@ showSlides();
 
 
 
-
 document.getElementById("loanForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const formData = new FormData(this);
 
-  fetch("https://script.google.com/macros/s/AKfycbxVK4ZOvtPHCEtSaiy6fw6M5HQZlGE-W-FbzN2WCaJrFQJyxIqYmnrQRpURgPcvumv7/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzCp3P6ZjcNeY7SeK2HgoafR8i-PKrtAQXOqttMClQDc5FouuXAlpeqTFfP1kuZSwhT/exec", {
     method: "POST",
     body: formData,
   })
