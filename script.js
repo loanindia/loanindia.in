@@ -88,15 +88,15 @@ document.getElementById("loanForm").addEventListener("submit", function(e) {
 
   fetch("https://script.google.com/macros/s/AKfycbzCp3P6ZjcNeY7SeK2HgoafR8i-PKrtAQXOqttMClQDc5FouuXAlpeqTFfP1kuZSwhT/exec", {
     method: "POST",
-    mode: "no-cors", // 👈 important to bypass CORS issue
     body: formData,
   })
-  .then(() => {
-    alert("Form submitted successfully!");
+  .then(response => response.text())
+  .then(data => {
+    alert(data === "Success" ? "Form submitted successfully!" : data);
     document.getElementById("loanForm").reset();
   })
   .catch(error => {
     alert("There was an error submitting the form.");
-    console.error(error);
+    console.error("Error:", error);
   });
 });
