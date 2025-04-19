@@ -79,3 +79,23 @@ function showSlides() {
 }
 
 showSlides();
+document.getElementById("loanForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData);
+
+  fetch("https://script.google.com/macros/s/AKfycbxVK4ZOvtPHCEtSaiy6fw6M5HQZlGE-W-FbzN2WCaJrFQJyxIqYmnrQRpURgPcvumv7/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+  })
+  .then(res => res.text())
+  .then(response => {
+    alert("Form submitted successfully!");
+    document.getElementById("loanForm").reset();
+  })
+  .catch(error => {
+    alert("There was an error submitting the form.");
+    console.error(error);
+  });
+});
