@@ -3,52 +3,100 @@ body, h1, h2, h3, h4, h5, h6, p, a, button, input, select, textarea, label {
     font-family: 'Poppins', 'Segoe UI', 'Helvetica Neue', sans-serif;
 }
 
-/* General Body Styling */
 body {
+    margin: 0;
+    padding-top: 90px; /* Height of header, adjust if needed */
     font-family: 'Poppins', sans-serif;
     background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
     overflow-x: hidden;
     box-sizing: border-box;
-    transition: all 0.3s ease;
-}
+  }
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
 
 /* Features Section */
 .features-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
-    padding: 40px 20px;
+    padding: 50px 20px;
     background: #f8f9ff;
+    border-radius: 16px;
 }
 
+/* Feature Tile Styling */
 .feature-tile {
     background: #fff;
-    padding: 25px 20px;
+    padding: 30px 25px;
     border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     text-align: center;
     border-left: 5px solid #302b63;
-    transition: all 0.3s ease-in-out;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    z-index: 1;
 }
 
+/* Hover Effect on Feature Tile */
 .feature-tile:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-left-color: #5e4b8b; /* Subtle color change on hover */
 }
 
+/* Title Styling */
 .feature-tile h3 {
     color: #302b63;
     font-weight: 700;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Adds some space between letters */
+    transition: color 0.3s ease-in-out;
 }
 
+/* Paragraph Styling */
 .feature-tile p {
     color: #555;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: color 0.3s ease-in-out;
 }
+
+/* On Hover, Title and Paragraph Change Color */
+.feature-tile:hover h3,
+.feature-tile:hover p {
+    color: #5e4b8b; /* Change text color on hover */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .features-section {
+        padding: 30px 15px;
+    }
+
+    .feature-tile {
+        padding: 20px 15px;
+    }
+
+    .feature-tile h3 {
+        font-size: 1.2rem;
+    }
+
+    .feature-tile p {
+        font-size: 0.9rem;
+    }
+}
+
+
 /* Buttons with Linear Gradient */
 .btn, .btn-gradient {
     position: relative;
@@ -74,18 +122,45 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Navbar container */
+
+/* Buttons with Linear Gradient */
+.btn, .btn-gradient {
+    position: relative;
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn:hover, .btn-gradient:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.btn:active, .btn-gradient:active {
+    transform: translateY(2px) scale(1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Horizontal padding */
-    height: 80px; /* Navbar height */
-    background-color: #fff; /* White background */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    position: sticky;
+    padding: 0 20px;
+    height: 80px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;        /* 💡 THIS makes it stick */
     top: 0;
-    z-index: 1000; /* Keep navbar above other content */
+    left: 0;
+    width: 100%;            /* Full width */
+    z-index: 1000;          /* Stay above other content */
     transition: background-color 0.3s ease;
 }
 
@@ -309,15 +384,92 @@ html {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-/* Carousel Image Effects */
-#loanCarousel img {
-    transition: transform 0.4s ease, filter 0.3s ease;
-}
 
-#loanCarousel img:hover {
-    transform: scale(1.1) rotate(3deg);
-    filter: brightness(110%);
-}
+/*Slideshow*/
+
+/* Layout for splitting the content */
+.split-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .business-intro {
+    flex: 1; /* Left side */
+    padding: 20px;
+  }
+  
+  .slideshow {
+    flex: 1; /* Right side */
+    position: relative;
+  }
+  
+  /* Slideshow Styling */
+  .slide-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .mySlides {
+    display: none;
+    width: 100%;
+    height: auto;
+    animation: slideIn 1s ease-out forwards;
+  }
+  
+  .mySlides img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px; /* Curved edges */
+  }
+  
+  /* Slide-in from left to right */
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Business Intro Text */
+  .business-intro h3 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .business-intro p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .business-intro a {
+    margin-top: 20px;
+    display: inline-block;
+  }
+  /* Slide-in animation */
+@keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .slide-in {
+    animation: slideIn 1s ease-out forwards;
+  }
+  
+
 
 /* Footer Styling */
 .footer {
@@ -385,3 +537,68 @@ html {
         padding: 20px;
     }
 }
+
+
+.image-collage {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Show 6 images */
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .collage-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+  
+  .collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  
+  .collage-item:hover img {
+    transform: scale(1.05);
+  }
+  
+  .overlay-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(15, 12, 41, 0.85) 100%);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 15px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .collage-item:hover .overlay-text {
+    opacity: 1;
+  }
+  
+  /* Adjusting for responsiveness on smaller screens */
+  @media (max-width: 1200px) {
+    .image-collage {
+      grid-template-columns: repeat(3, 1fr); /* Show 3 images on medium-sized screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .image-collage {
+      grid-template-columns: repeat(2, 1fr); /* Show 2 images on smaller screens */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .image-collage {
+      grid-template-columns: 1fr; /* Show 1 image on extra small screens */
+    }
+  }
+  
