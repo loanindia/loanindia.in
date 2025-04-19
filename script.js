@@ -81,7 +81,6 @@ function showSlides() {
 showSlides();
 
 
-
 document.getElementById("loanForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -89,10 +88,10 @@ document.getElementById("loanForm").addEventListener("submit", function(e) {
 
   fetch("https://script.google.com/macros/s/AKfycbzCp3P6ZjcNeY7SeK2HgoafR8i-PKrtAQXOqttMClQDc5FouuXAlpeqTFfP1kuZSwhT/exec", {
     method: "POST",
+    mode: "no-cors", // 👈 important to bypass CORS issue
     body: formData,
   })
-  .then(res => res.text())
-  .then(response => {
+  .then(() => {
     alert("Form submitted successfully!");
     document.getElementById("loanForm").reset();
   })
