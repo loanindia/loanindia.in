@@ -24,6 +24,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 
 
+
+
 </head>
 <body>
 
@@ -233,30 +235,20 @@
 <section id="apply" class="container py-5">
   <h3 class="text-center mb-4">Apply for a Loan</h3>
 
-  <form action="https://formsubmit.co/loanindiaofficial@gmail.com" method="POST">
+  <form id="loanForm">
     <div class="row g-3">
-
-      <!-- Name -->
       <div class="col-md-6">
         <input type="text" class="form-control" name="Full Name" placeholder="Full Name" required>
       </div>
-
-      <!-- Age -->
       <div class="col-md-6">
         <input type="number" class="form-control" name="Age" placeholder="Age" min="18" max="100" required>
       </div>
-
-      <!-- Mobile -->
       <div class="col-md-6">
         <input type="tel" class="form-control" name="Mobile Number" placeholder="Mobile Number" pattern="[0-9]{10}" required>
       </div>
-
-      <!-- Email -->
       <div class="col-md-6">
         <input type="email" class="form-control" name="Email" placeholder="Email" required>
       </div>
-
-      <!-- Profession -->
       <div class="col-md-6">
         <select class="form-select" name="Profession" required>
           <option value="">Select Profession</option>
@@ -265,8 +257,6 @@
           <option>Professional (Doctor, CA, etc.)</option>
         </select>
       </div>
-
-      <!-- Loan Type -->
       <div class="col-md-6">
         <select class="form-select" name="Loan Type" required>
           <option value="">Select Loan Type</option>
@@ -277,35 +267,25 @@
           <option>Mortgage Loan</option>
         </select>
       </div>
-
-      <!-- Required Loan Amount -->
       <div class="col-md-6">
         <label for="required-loan-amount" class="form-label">Required Loan Amount (₹)</label>
         <input type="number" class="form-control" name="Required Loan Amount" id="required-loan-amount" min="50000" max="100000000" step="50000" placeholder="e.g. 500000" required>
         <small class="text-muted">Min ₹50,000, Max ₹10 Cr</small>
       </div>
-
-      <!-- District -->
       <div class="col-md-6">
         <input type="text" class="form-control" name="District" placeholder="District" required>
       </div>
-
-      <!-- Pincode -->
       <div class="col-md-6">
         <input type="text" class="form-control" name="Pincode" placeholder="Pincode" pattern="[0-9]{6}" required>
       </div>
-
-      <!-- Hidden configs for FormSubmit -->
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
-
-      <!-- Submit Button -->
+  
       <div class="col-12">
         <button type="submit" class="btn btn-success w-100">Submit Application</button>
       </div>
-      
+      <input type="hidden" name="redirect" value="https://LoanIndia.in/thank-you.html">
+
     </div>
-  </form>
+  </form>  
 </section>
 
   <!-- Footer -->
