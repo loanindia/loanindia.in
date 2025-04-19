@@ -51,3 +51,31 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+//Slide show
+let slideIndex = 0;
+
+function showSlides() {
+  let slides = document.getElementsByClassName("mySlides");
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+    // Remove animation class in case it was already applied
+    slides[i].classList.remove("slide-in");
+  }
+
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+
+  let currentSlide = slides[slideIndex - 1];
+  currentSlide.style.display = "block";
+
+  // Trigger the slide-in animation
+  void currentSlide.offsetWidth; // Force reflow to restart animation
+  currentSlide.classList.add("slide-in");
+
+  setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+
+showSlides();
