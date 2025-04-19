@@ -11,6 +11,7 @@ body {
     overflow-x: hidden;
     box-sizing: border-box;
   }
+
   header {
     position: fixed;
     top: 0;
@@ -21,7 +22,25 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-
+  #floating-emi-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+    z-index: 1050;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    #floating-emi-btn {
+      right: 10px;
+      bottom: 80px;
+      font-size: 14px;
+    }
+  }
+  
 /* Features Section */
 .features-section {
     display: grid;
