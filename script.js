@@ -84,19 +84,34 @@ showSlides();
 document.getElementById("loanForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  const formData = new FormData(this);
+  const form = this;
+  const formData = {
+    "Full Name": form["Full Name"].value,
+    "Age": form["Age"].value,
+    "Mobile Number": form["Mobile Number"].value,
+    "Email": form["Email"].value,
+    "Profession": form["Profession"].value,
+    "Loan Type": form["Loan Type"].value,
+    "Required Loan Amount": form["Required Loan Amount"].value,
+    "District": form["District"].value,
+    "Pincode": form["Pincode"].value
+  };
 
   fetch("https://script.google.com/macros/s/AKfycbzCp3P6ZjcNeY7SeK2HgoafR8i-PKrtAQXOqttMClQDc5FouuXAlpeqTFfP1kuZSwhT/exec", {
     method: "POST",
-    body: formData,
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
   })
   .then(response => response.text())
   .then(data => {
     alert(data === "Success" ? "Form submitted successfully!" : data);
-    document.getElementById("loanForm").reset();
+    form.reset();
   })
   .catch(error => {
     alert("There was an error submitting the form.");
     console.error("Error:", error);
   });
 });
+
