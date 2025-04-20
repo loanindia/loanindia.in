@@ -97,7 +97,7 @@ document.getElementById("loanForm").addEventListener("submit", function(e) {
     "Pincode": form["Pincode"].value
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbzCp3P6ZjcNeY7SeK2HgoafR8i-PKrtAQXOqttMClQDc5FouuXAlpeqTFfP1kuZSwhT/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbx0Pcz16GlDmgqpJxTNygZP9GtaJ4knZxfAXg3dRtU3VheTpFfiYsj_e9MQnsoUpruq-Q/exec", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
